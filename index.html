@@ -1,474 +1,186 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Rishu Kumar — Portfolio</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        warm: {
-                            50: '#fff8f0',
-                            100: '#fff0e0',
-                            300: '#f6c79a',
-                            500: '#f59e0b'
-                        },
-                        glow: '#f472b6'
-                    },
-                    fontFamily: { inter: ['Inter', 'sans-serif'] }
-                }
-            }
-        }
-    </script>
-
-    <!-- ScrollReveal for entry animations -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rishu Kumar - Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        /* ---------- Base ---------- */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+      /* Landing Page Ambient */
+      body {
+        /* Subtle ambient gradient */
+        background-color: var(--bg-dark);
+        background-image:
+          radial-gradient(
+            circle at 10% 20%,
+            rgba(99, 102, 241, 0.08) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(139, 92, 246, 0.08) 0%,
+            transparent 40%
+          );
+        background-attachment: fixed;
+      }
 
-        html {
-            scroll-behavior: smooth;
-        }
+      .portfolio-label {
+        color: #818cf8 !important; /* Indigo-400 */
+      }
 
-        body {
-            font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-            transition: background .6s ease, color .4s ease;
-            min-height: 100vh;
-        }
+      .hero-title {
+        background: linear-gradient(45deg, var(--text-light) 30%, #818cf8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
 
-        /* ---------- Light background (soft mesh) ---------- */
-        body:not(.dark) {
-            /* Reverted to the classic purple gradient background */
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color-scheme: light;
-            color: #0f172a;
-        }
+      /* Gateway Card Accents */
+      .gateway-card {
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .gateway-card:hover {
+        border-color: rgba(99, 102, 241, 0.4);
+        box-shadow: 0 10px 40px rgba(99, 102, 241, 0.15);
+      }
+      .gateway-card:hover .gateway-icon {
+        color: #818cf8;
+      }
 
-        /* ---------- Dark "Aurora" background ---------- */
-        @keyframes aurora {
-            from {
-                background-position: 0% 50%, 100% 50%, 50% 0%;
-            }
-
-            to {
-                background-position: 100% 50%, 0% 50%, 50% 100%;
-            }
-        }
-
-        .dark body {
-            background-image:
-                radial-gradient(ellipse 20% 40% at 10% 10%, rgba(139, 92, 246, 0.08), transparent),
-                radial-gradient(ellipse 20% 40% at 90% 90%, rgba(99, 102, 241, 0.08), transparent),
-                linear-gradient(135deg, rgba(2, 6, 23, 1) 0%, rgba(6, 6, 30, 1) 100%);
-            background-color: #020617;
-            animation: aurora 20s linear infinite;
-            color: #e6eef8;
-            color-scheme: dark;
-        }
-
-        /* ---------- Glass card (shared) ---------- */
-        .glass {
-            backdrop-filter: blur(10px) saturate(1.05);
-            -webkit-backdrop-filter: blur(10px);
-            border-radius: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            transition: transform .45s cubic-bezier(.16, .84, .24, 1), box-shadow .3s, background .3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        body:not(.dark) .glass {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .dark .glass {
-            background: rgba(17, 24, 39, 0.5);
-            border-color: rgba(255, 255, 255, 0.04);
-        }
-
-        .glass:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(2, 6, 23, 0.25);
-        }
-
-        .glass::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: inherit;
-            pointer-events: none;
-            background: linear-gradient(120deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.00));
-            mix-blend-mode: overlay;
-            transition: opacity .25s;
-            opacity: 1;
-        }
-
-        /* subtle highlight ring in dark */
-        .dark .glass::after {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            z-index: -1;
-            border-radius: inherit;
-            background: linear-gradient(90deg, rgba(124, 58, 237, 0.08), rgba(6, 182, 212, 0.06));
-            opacity: 0;
-            transition: opacity .25s;
-        }
-
-        .dark .glass:hover::after {
-            opacity: 1;
-        }
-
-        /* floating animation */
-        @keyframes floaty {
-
-            0%,
-            100% {
-                transform: translateY(0)
-            }
-
-            50% {
-                transform: translateY(-16px)
-            }
-        }
-
-        .floating {
-            animation: floaty 6s ease-in-out infinite;
-        }
-
-        /* portfolio-card specifics */
-        .portfolio-card {
-            padding: 3rem;
-            border-radius: 1.5rem;
-            display: block;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .portfolio-card .icon {
-            width: 64px;
-            height: 64px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            transition: transform .28s;
-        }
-
-        .portfolio-card:hover .icon {
-            transform: scale(1.08) rotate(6deg);
-        }
-
-        .pill {
-            padding: .35rem .75rem;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.08);
-            font-weight: 600;
-            font-size: .9rem;
-            display: inline-block;
-            color: white;
-            /* Make pill text white */
-        }
-
-        /* quick links pill container */
-        .social-pill {
-            display: inline-flex;
-            gap: 1rem;
-            align-items: center;
-            padding: .6rem 1rem;
-            border-radius: 999px;
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        /* cursor trail */
-        .trail-dot {
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            border-radius: 50%;
-            background: #f59e0b;
-            /* warm-500 */
-            will-change: transform;
-            transition: background .3s ease;
-        }
-
-        .dark .trail-dot {
-            background: #a78bfa;
-            /* A nice violet for dark mode */
-        }
-
-        body:not(.pointer-fine) .trail-dot {
-            display: none;
-        }
-
-        /* theme overlay wipe (click origin) */
-        #theme-transition-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 9998;
-            clip-path: circle(0% at var(--x, 50%) var(--y, 50%));
-            transition: clip-path .7s cubic-bezier(.65, 0, .35, 1);
-            backdrop-filter: blur(3px);
-        }
-
-        #theme-transition-overlay.is-active {
-            clip-path: circle(150% at var(--x, 50%) var(--y, 50%));
-        }
-
-        /* responsive tweaks */
-        @media (min-width: 768px) {
-            .portfolio-card {
-                padding: 4rem;
-            }
-
-            .icon {
-                width: 80px;
-                height: 80px;
-            }
-        }
+      /* Light Mode */
+      html.light-mode body {
+        background-image:
+          radial-gradient(
+            circle at 10% 20%,
+            rgba(99, 102, 241, 0.1) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(139, 92, 246, 0.1) 0%,
+            transparent 40%
+          );
+      }
+      html.light-mode .portfolio-label {
+        color: #4f46e5 !important;
+      }
+      html.light-mode .hero-title {
+        background: linear-gradient(45deg, #000 30%, #4f46e5);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
     </style>
-</head>
+  </head>
+  <body>
+    <!-- BOUNCE NAV -->
+    <div class="nav-wrapper">
+      <nav class="bounce-navbar">
+        <img
+          src="./resource/rishu_kumar_img.jpg"
+          alt="Logo"
+          class="center-logo"
+        />
+        <span class="brand">RISHU KUMAR</span>
+        <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+      </nav>
 
-<body class="font-inter">
-    <!-- theme overlay + cursor dot -->
-    <div id="theme-transition-overlay"></div>
-
-    <!-- theme toggle (top-right) -->
-    <div class="fixed top-4 right-4 z-50">
-        <button id="themeBtn" aria-label="Toggle theme"
-            class="p-3 rounded-full focus:outline-none bg-white/90 dark:bg-gray-800/70 shadow-lg border border-white/10">
-            <svg id="sun" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20"
-                fill="currentColor">
-                <path
-                    d="M10 3a1 1 0 011 1v1a1 1 0 11-2 0V4a1 1 0 011-1zm0 10a3 3 0 100-6 3 3 0 000 6zM4 10a1 1 0 110 2H3a1 1 0 110-2h1z">
-                </path>
-            </svg>
-            <svg id="moon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden text-indigo-400" viewBox="0 0 20 20"
-                fill="currentColor">
-                <path d="M17.293 13.293A8 8 0 116.707 2.707 7 7 0 1017.293 13.293z"></path>
-            </svg>
-        </button>
+      <div class="nav-overlay">
+        <div class="nav-content">
+          <ul class="nav-links">
+            <li><a href="./">Home</a></li>
+            <li><a href="./web/">Web Development</a></li>
+            <li><a href="./video/">Video Editing</a></li>
+            <li><a href="mailto:rishukumar.work@gmail.com">Contact</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <main class="max-w-6xl mx-auto px-6 py-12">
-        <!-- header -->
-        <header class="text-center mb-12 floating">
-            <h1 class="text-5xl md:text-7xl font-extrabold mb-4"
-                style="background-clip: text; -webkit-background-clip: text; background-image: linear-gradient(90deg, #fff, #e0e7ff); color: transparent;">
-                Rishu Kumar</h1>
-            <p class="text-xl md:text-2xl text-white/90 font-light">Choose Your Journey</p>
-        </header>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle-fixed" aria-label="Toggle Theme">🌙</button>
 
-        <!-- cards -->
-        <div class="grid md:grid-cols-2 gap-8 mb-8">
-            <!-- web dev -->
-            <a href="./web/" class="portfolio-card glass group" id="webCard">
-                <div class="relative">
-                    <div class="icon">
-                        <!-- icon -->
-                        <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                        </svg>
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Web Development</h2>
-                    <p class="text-white/80 text-lg mb-4">A coder with a creative edge. Building modern APIs,
-                        interactive
-                        UIs, and exploring the intersection of code and motion design.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="pill">Python</span>
-                        <span class="pill">FastAPI</span>
-                        <span class="pill">Django</span>
-                        <span class="pill">Html/Css</span>
-                        <span class="pill">Javascript</span>
-                    </div>
-                    <div
-                        class="flex items-center gap-3 text-white font-medium group-hover:translate-x-2 transition-transform">
-                        <span>View Projects</span>
-                        <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </div>
-                </div>
-            </a>
-
-            <!-- video editing -->
-            <a href="./video/" class="portfolio-card glass group" id="videoCard">
-                <div class="relative">
-                    <div class="icon">
-                        <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
-                                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                        </svg>
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Video Editing</h2>
-                    <p class="text-white/80 text-lg mb-4">Visual creator and motion design explorer. Crafting stories
-                        that move people through gamer edits, grading, and After Effects wizardry.</p>
-                    <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="pill">After Effects</span>
-                        <span class="pill">Color Grading</span>
-                        <span class="pill">Motion Graphics</span>
-                    </div>
-                    <div
-                        class="flex items-center gap-3 text-white font-medium group-hover:translate-x-2 transition-transform">
-                        <span>View Showreel</span>
-                        <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </div>
-                </div>
-            </a>
+    <!-- HERO / GATEWAY -->
+    <section class="hero">
+      <div
+        class="hero-container"
+        style="
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+          gap: 3rem;
+        "
+      >
+        <div class="hero-header">
+          <p class="portfolio-label">PORTFOLIO / 2026</p>
+          <h1 class="hero-title">Rishu Kumar</h1>
+          <p class="hero-subtitle">
+            Developer & Creator. <br /><strong>Choose Your Journey</strong>.
+          </p>
         </div>
 
-        <!-- quick links -->
-        <div class="text-center">
-            <div class="social-pill mx-auto text-white/95">
-                <a href="mailto:rishukumar.work@gmail.com" title="Email" class="hover:opacity-90">
-                    <svg class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                    </svg>
-                </a>
-                <a href="https://github.com/rishukumark19" target="_blank" title="GitHub" class="hover:opacity-90">
-                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-                    </svg>
-                </a>
-                <a href="https://www.linkedin.com/in/rishukumar-work" target="_blank" title="LinkedIn"
-                    class="hover:opacity-90">
-                    <svg class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
-                        <path
-                            d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59z" />
-                    </svg>
-                </a>
-                <a href="https://x.com/rishukumark19" target="_blank" title="X / Twitter" class="hover:opacity-90">
-                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                    </svg>
-                </a>
-            </div>
-        </div>
-    </main>
+        <div class="gateway-grid">
+          <!-- Web Dev Card -->
+          <a href="./web/" class="gateway-card">
+            <svg
+              class="gateway-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+              />
+            </svg>
+            <h2 class="gateway-title">Web Dev</h2>
+            <p class="gateway-desc">
+              Full-stack solutions, creative & interactive web experiences.
+            </p>
+          </a>
 
-    <footer class="text-center mt-12 muted text-white/70">
-        © <span id="year"></span> Rishu Kumar — Built with TailwindCSS • Crafted with curiosity
+          <!-- Video Editing Card -->
+          <a href="./video/" class="gateway-card">
+            <svg
+              class="gateway-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+              />
+            </svg>
+            <h2 class="gateway-title">Video Editing</h2>
+            <p class="gateway-desc">
+              Visual storytelling, motion graphics, and cinematic edits.
+            </p>
+          </a>
+        </div>
+
+        <div class="status-info" style="margin-top: 2rem">
+          <span class="status-dot"></span>
+          <span>Available for freelance & collaboration</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2026 Rishu Kumar. All rights reserved.</p>
     </footer>
 
-    <script>
-        // ---------- Theme handling (persist and sync)
-        const html = document.documentElement;
-        const themeBtn = document.getElementById('themeBtn');
-        const transitionOverlay = document.getElementById('theme-transition-overlay');
-
-        const storedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
-            html.classList.add('dark');
-            document.getElementById('moon').classList.remove('hidden');
-            document.getElementById('sun').classList.add('hidden');
-        } else {
-            html.classList.remove('dark');
-            document.getElementById('sun').classList.remove('hidden');
-            document.getElementById('moon').classList.add('hidden');
-        }
-
-        themeBtn.addEventListener('click', (e) => {
-            const x = e.clientX;
-            const y = e.clientY;
-            transitionOverlay.style.setProperty('--x', `${x}px`);
-            transitionOverlay.style.setProperty('--y', `${y}px`);
-            transitionOverlay.classList.add('is-active');
-
-            setTimeout(() => {
-                html.classList.toggle('dark');
-                const isDark = html.classList.contains('dark');
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
-                // swap visible icon
-                document.getElementById('moon').classList.toggle('hidden');
-                document.getElementById('sun').classList.toggle('hidden');
-            }, 220);
-
-            transitionOverlay.addEventListener('transitionend', () => transitionOverlay.classList.remove('is-active'), { once: true });
-        });
-
-        // ---------- Cursor Trail (only for pointer devices) ----------
-        if (window.matchMedia("(pointer: fine)").matches) {
-            document.body.classList.add('pointer-fine');
-            const trailCount = 12; // Number of dots in the trail
-            const dots = [];
-            const history = { x: [], y: [] };
-            const historyLength = 15; // How much history to keep for smoothness
-
-            for (let i = 0; i < trailCount; i++) {
-                const dot = document.createElement('div');
-                dot.className = 'trail-dot';
-                document.body.appendChild(dot);
-                dots.push(dot);
-            }
-
-            dots.forEach((dot, index) => {
-                const size = (trailCount - index) * 1.2; // Bigger at the head, smaller at the tail
-                dot.style.width = `${size}px`;
-                dot.style.height = `${size}px`;
-            });
-
-            window.addEventListener('mousemove', (e) => {
-                history.x.push(e.clientX);
-                history.y.push(e.clientY);
-                if (history.x.length > historyLength) {
-                    history.x.shift();
-                    history.y.shift();
-                }
-            });
-
-            function animateDots() {
-                dots.forEach((dot, index) => {
-                    const historyIndex = Math.max(0, history.x.length - 1 - index);
-                    const x = history.x[historyIndex] || 0;
-                    const y = history.y[historyIndex] || 0;
-                    dot.style.transform = `translate(${x - dot.offsetWidth / 2}px, ${y - dot.offsetHeight / 2}px)`;
-                });
-                requestAnimationFrame(animateDots);
-            }
-            animateDots();
-        }
-
-        // ---------- Fade transition for link clicks (simple static-site friendly) ----------
-        document.querySelectorAll('a[href^="./"], a[href^="/"]').forEach(a => {
-            a.addEventListener('click', (e) => {
-                // internal nav only
-                const href = a.getAttribute('href');
-                if (!href || href.startsWith('http')) return;
-                e.preventDefault();
-                document.body.style.transition = 'opacity .35s';
-                document.body.style.opacity = '0';
-                setTimeout(() => location.href = href, 320);
-            });
-        });
-
-        // ---------- ScrollReveal ----------
-        const sr = ScrollReveal({ origin: 'bottom', distance: '20px', duration: 650, delay: 150, opacity: 0, easing: 'cubic-bezier(.2,.9,.3,1)', viewFactor: 0.12 });
-        sr.reveal('header', { origin: 'top', distance: '40px', duration: 700, delay: 120 });
-        sr.reveal('.portfolio-card', { interval: 120 });
-
-        // ---------- small helpers ----------
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>

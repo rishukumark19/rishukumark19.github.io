@@ -1,0 +1,727 @@
+/* =========================================
+   1. WEBSITE-RESUME STYLES (Base Design)
+   ========================================= */
+:root {
+  --bg-dark: #0f0f0f;
+  --bg-darker: #1a1a1a;
+  --text-light: #e0e0e0;
+  --text-muted: #999;
+  --accent: #fff;
+  --border-color: #333;
+  /* Bounce Nav Vars */
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  line-height: 1.6;
+  font-size: 16px;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  /* Minimal Cursor: Small Dot */
+  cursor:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4" fill="white" stroke="black" stroke-width="1"/></svg>')
+      6 6,
+    auto;
+}
+
+a,
+button,
+.pointer,
+.project-links a,
+.preview-btn {
+  /* Minimal Pointer: Larger/Different Dot */
+  cursor:
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><circle cx="12" cy="12" r="8" fill="rgba(255,255,255,0.2)" stroke="white"/></svg>')
+      12 12,
+    pointer;
+}
+
+/* Minimal Cursor Follower (Simple Ring) */
+.cursor-follower {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  background-image: none;
+  background-color: transparent;
+  transition: transform 0.1s ease-out; /* Slightly smoother */
+  will-change: transform;
+  mix-blend-mode: difference; /* Interactions with background */
+}
+
+/* Light Mode Variables */
+html.light-mode {
+  --bg-dark: #ffffff;
+  --bg-darker: #f5f5f5;
+  --text-light: #000000;
+  --text-muted: #666666;
+  --border-color: #e0e0e0;
+  --accent: #000;
+}
+
+/* --- Container & Sections --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 5rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+section h2 {
+  font-size: 2.2rem;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.5px;
+}
+
+/* --- Hero Section --- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  background-color: var(--bg-dark);
+  border-top: none; /* First section */
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.portfolio-label {
+  font-size: 0.8rem;
+  letter-spacing: 2.5px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.hero-title {
+  font-size: clamp(3.5rem, 9vw, 6rem);
+  font-weight: 200;
+  letter-spacing: -1.5px;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title span {
+  display: block;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.hero-subtitle strong {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.status-info {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  align-items: center;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #00dd00;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.btn-icon {
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--border-color);
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 0.88rem;
+  border-radius: 3px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  cursor: pointer;
+}
+
+.btn-icon:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* --- Experience / Projects Styles --- */
+.experience-item,
+.project-item,
+.education-item {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.timeline-header h3,
+.project-item h3,
+.education-item h3 {
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+  color: var(--text-light);
+}
+
+.date,
+.job-date {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.company {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.company a,
+.project-links a,
+.email-link,
+.view-more {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.company a:hover,
+.project-links a:hover,
+.email-link:hover,
+.view-more:hover {
+  color: var(--accent);
+}
+
+.achievements {
+  margin-left: 1.2rem;
+  list-style: disc;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.achievements li {
+  margin-bottom: 0.4rem;
+  line-height: 1.6;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.tech-stack span,
+.skill {
+  padding: 0.25rem 0.6rem;
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: all 0.3s;
+}
+
+.tech-stack span:hover,
+.skill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.description {
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+.project-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.project-links a:hover {
+  background: var(--accent);
+  color: var(--bg-dark);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.view-all {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 0.85rem;
+  float: right;
+  margin-top: -2rem;
+}
+
+/* --- Projects Grid (from website-resume) --- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.project-item {
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.project-item:hover {
+  border-color: var(--accent);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* --- Social Grid --- */
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.social-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.social-box:hover {
+  border-color: var(--accent);
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* --- Side Nav --- */
+.side-nav {
+  position: fixed;
+  right: 35px; /* Changed to Right side to not conflict with left content usually */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 100;
+  pointer-events: none; /* Allow clicks through wrapper */
+}
+
+.nav-dot {
+  pointer-events: auto;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid var(--text-muted);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.nav-dot:hover,
+.nav-dot.active {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.3);
+}
+
+@media (max-width: 768px) {
+  .side-nav {
+    display: none;
+  }
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+}
+
+/* --- Footer --- */
+.footer {
+  border-top: 1px solid var(--border-color);
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-top: 5rem;
+}
+
+/* =========================================
+   2. BOUNCE NAV STYLES (Integrated)
+   ========================================= */
+
+/* NAV WRAPPER */
+.nav-wrapper {
+  width: 300px; /* Default small width */
+  max-width: 90%;
+  max-height: 60px; /* closed height */
+  margin: 20px auto;
+  position: fixed;
+  top: 10px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  background: var(--bg-darker); /* Adopt theme background */
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+
+  transition:
+    width 0.45s var(--spring),
+    max-height 0.6s var(--spring),
+    box-shadow 0.35s ease;
+}
+
+.nav-wrapper.open {
+  width: 850px;
+  max-width: 90vw; /* Responsive width */
+  max-height: 600px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  background: var(--bg-dark);
+}
+
+html.light-mode .nav-wrapper {
+  background: #fff;
+}
+
+/* NAVBAR HEAD (Visible always) */
+.bounce-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  height: 60px;
+}
+
+/* LOGO IMAGE */
+.center-logo {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  transition: transform 0.6s var(--spring);
+  border-radius: 50%;
+}
+
+.nav-wrapper.open .center-logo {
+  transform: rotate(360deg);
+}
+.nav-wrapper.closing .center-logo {
+  transform: rotate(-360deg);
+}
+
+.brand {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-light);
+}
+
+/* MENU BUTTON */
+#menu-toggle {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+/* PANEL CONTENT (Hidden initially) */
+.nav-overlay {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  padding: 2rem;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 1.5rem;
+  font-weight: 300;
+  transition: color 0.3s;
+}
+
+@media (max-width: 480px) {
+  .nav-links a {
+    font-size: 1.2rem;
+  }
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* Fixed Theme Toggle (Top Right) */
+.theme-toggle-fixed {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001; /* Above nav */
+  background: var(--bg-darker);
+  border: 1px solid var(--border-color);
+  color: var(--text-light);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+
+.theme-toggle-fixed:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Special styles for Gateway Cards (Custom for rishuhome) */
+.gateway-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.gateway-card {
+  background: var(--bg-darker);
+  border: 1px solid var(--border-color);
+  padding: 3rem;
+  border-radius: 1rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-light);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  cursor: pointer;
+}
+
+.gateway-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.gateway-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--text-muted);
+  transition: all 0.4s ease;
+}
+
+.gateway-card:hover .gateway-icon {
+  color: var(--accent);
+  transform: scale(1.1) rotate(5deg);
+}
+
+.gateway-title {
+  font-size: 2rem;
+  font-weight: 300;
+  margin: 0;
+}
+
+.gateway-desc {
+  color: var(--text-muted);
+  font-size: 1rem;
+  max-width: 300px;
+}
+
+/* --- Modal Styles --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: var(--bg-dark);
+  width: 90%;
+  height: 90%;
+  max-width: 1400px;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-color);
+}
+
+.close-modal {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  z-index: 2010;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.6);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.close-modal:hover {
+  background: var(--accent);
+  color: var(--bg-dark);
+  transform: rotate(90deg);
+}
+
+#preview-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+}
+
+.preview-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  padding: 0.6rem 1.2rem;
+  display: inline-flex; /* Changed from flex to match anchor */
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.preview-btn:hover {
+  background: var(--accent);
+  color: var(--bg-dark);
+  border-color: var(--accent);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
