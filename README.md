@@ -1,100 +1,212 @@
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=rishukumark19&show_icons=true&theme=onedark&hide_border=true" alt="Rishu's GitHub Stats" height="150" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=rishukumark19&theme=onedark&hide_border=true" alt="Rishu's GitHub Streak" height="150" />
+  <h1>🚀 Rishu Kumar's Portfolio Website</h1>
+  <p>A modern, fully responsive personal portfolio showcasing my journey as a Full Stack Developer</p>
 </p>
 
-# 🚀 Rishu Kumar — Developer Portfolio
+---
 
-A fast, interactive, and fully responsive personal portfolio showcasing my journey into **Python Backend Development** (FastAPI) and building **modern, lightweight UIs** with **HTMX** and **Tailwind CSS**.
+## 📋 About This Project
 
-This project embodies the **"less JavaScript, more HTML"** philosophy.
+This is my personal portfolio website built with modern web technologies. It showcases my projects, skills, experience, and professional journey as a Full Stack Developer specializing in **React** and **Angular**.
+
+**Live Demo:** https://rishukumark19.github.io/
 
 ---
 
-## ✨ Live Demo & Experience
-The best way to see the magic is to check it out live!
+## 🎯 Portfolio Highlights
 
-👉 **[rishukumark19.github.io](https://rishukumark19.github.io)**
-*Hosted via GitHub Pages*
+### Who I Am
+- **Full Stack Developer** passionate about building fast, clean, and scalable web applications
+- **Frontend Specialist** with expertise in React.js and Angular
+- **B.Tech Graduate** from National Institute of Technology Karnataka (NITK), Surathkal
+- Currently working as **Full Stack Developer Intern at DataNeurus**
 
-| Feature Spotlight | Description |
-| :--- | :--- |
-| **Glass Morphism** | Subtle, frosted card effects that change seamlessly between light and dark modes. |
-| **Interactivity** | **HTMX** powers the expandable project cards, providing a modern, rich user experience without heavy JS dependencies. |
-| **Tilt Effect** | Micro-interactions on key cards (hover over the main card!) to add a polished feel. |
-| **Breathing Glow** | The **dark mode** background features a subtle, slow animation for a dynamic, deep-space feel. |
+### What's Featured
+✅ **Professional Introduction** - Learn about my development journey
+✅ **Featured Projects** - React Quiz App, Tech Company Website, Personal Portfolio
+✅ **Technical Skills** - Frontend, tools, best practices, and methodologies
+✅ **Experience Timeline** - DataNeurus & CrossTech Internships
+✅ **Education & Achievements** - NITK B.Tech, Leadership roles at NITK
+✅ **Contact & Social Links** - Email, LinkedIn, GitHub, Twitter/X
 
 ---
 
-## 🛠️ Stack & Philosophy
+## 🛠️ Technologies Used
 
-This portfolio is a single, self-contained file (`index.html`) demonstrating proficiency with a modern, *utility-first* approach to web development.
+### Frontend Stack
+- **HTML5** - Semantic markup and accessibility
+- **CSS3** - Modern styling with animations and responsive design
+- **JavaScript (ES6+)** - Interactive features and DOM manipulation
 
-| Category | Technology | Focus |
-| :--- | :--- | :--- |
-| **Structure** | **HTML5** | Maximum semantic clarity and accessibility. |
-| **Style** | **Tailwind CSS (CDN)** | Rapid utility-first design and native dark mode support. |
-| **Interactivity** | **HTMX** | Progressive enhancement: using HTML attributes to handle complex UI actions. |
-| **Theme** | **Pure JavaScript** | Clean logic for system preference detection and `localStorage` theme persistence. |
+### Styling & Design
+- **Tailwind CSS** - Utility-first CSS framework
+- **Responsive Design** - Mobile-first approach
+- **CSS Animations** - Smooth transitions and visual effects
+- **Modern UI/UX** - Clean, professional design patterns
 
-### Primary Toolset
+### Tools & Practices
+- **Git & GitHub** - Version control and collaboration
+- **VS Code** - Development environment
+- **Accessibility (a11y)** - WCAG standards compliance
+- **Performance Optimization** - Fast load times and smooth interactions
 
-<p>
-  <img alt="Python" src="https://img.shields.io/badge/Python-3776AB.svg?style=for-the-badge&logo=python&logoColor=white"/>
-  <img alt="FastAPI" src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi"/>
-  <img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwind-css&logoColor=white"/>
-  <img alt="HTMX" src="https://img.shields.io/badge/HTMX-3498DB?style=for-the-badge&logo=htmx&logoColor=white"/>
-  <img alt="Django" src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white"/>
+---
+
+## 📁 Project Structure
+
+```
+rishukumark19.github.io/
+├── index.html          # Main portfolio page
+├── web/               # Web-related resources
+├── resource/          # Additional resources
+├── video/             # Video content
+├── README.md          # This file
+└── CNAME             # Custom domain configuration
+```
+
+---
+
+## 🌟 Key Features
+
+### 1. **Responsive Design**
+- Perfectly optimized for desktop, tablet, and mobile devices
+- Fluid layouts using modern CSS
+- Touch-friendly interface
+
+### 2. **Modern Styling**
+- Clean, professional aesthetic
+- Smooth animations and transitions
+- Dark/Light mode support (via CSS variables)
+- Tailwind CSS for rapid development
+
+### 3. **Performance**
+- Optimized images and assets
+- Lazy loading for better performance
+- Fast page load times
+- SEO-friendly structure
+
+### 4. **Accessibility**
+- Semantic HTML markup
+- ARIA labels and roles
+- Keyboard navigation support
+- High contrast ratios
+
+---
+
+## 💼 Featured Work
+
+### Project Highlights
+
+**React Quiz Web Application**
+- Component-based architecture
+- Accessibility-focused design
+- Performance-optimized with React hooks
+- Scalable UI implementation
+
+**Tech Company Website**
+- Fully responsive design
+- Strong UX principles
+- Clean, maintainable code
+- Production-ready implementation
+
+**Personal Portfolio** (This Site)
+- Modern professional design
+- Comprehensive project showcase
+- Full-stack development overview
+
+---
+
+## 🎓 About Me
+
+**Education:**
+- B.Tech in Electronics and Communication Engineering from NITK, Surathkal (2021-2025)
+- Strong foundation in software engineering and technical development
+
+**Experience:**
+- Full Stack Developer Intern @ DataNeurus (Jan 2026 - Present)
+  - Improving frontend code quality
+  - Learning production-level practices
+  - Building scalable applications
+
+- Freelance Frontend Developer @ CrossTech (Aug 2025 - Dec 2025)
+  - Built responsive client websites
+  - Managed full project lifecycle
+  - Implemented accessibility-focused solutions
+
+**Leadership:**
+- President, SAE NITK (2024-2025)
+- Publicity Head, NSS NITK (2023-2024)
+- Contributor, Web Enthusiasts Club (2022-2025)
+
+---
+
+## 🔗 Connect With Me
+
+<p align="center">
+  <a href="mailto:rishukumar.work@gmail.com"><img alt="Email" src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+  <a href="https://linkedin.com/in/rishu-kumar-work"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+  <a href="https://x.com/rishukumark19"><img alt="X" src="https://img.shields.io/badge/X-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" /></a>
+  <a href="https://github.com/rishukumark19"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" /></a>
 </p>
 
-### Core Learning Areas Showcased:
+---
 
-* **Python Backend Ecosystem:** FastAPI, Django, Pydantic.
-* **Modern Frontend:** Mastering Tailwind CSS for production-ready design.
-* **Workflow:** Automation, AI/Prompt Engineering, Git/GitHub.
-* **Creative:** Video editing and motion graphics (DaVinci Resolve).
+## 📊 Portfolio Stats
+
+- **Projects Showcased:** 3+ major projects
+- **GitHub Repositories:** 48+
+- **Total Contributions:** 174+
+- **Current Streak:** 2 days
+- **Longest Streak:** 15 days
 
 ---
 
-## 💻 Getting Started
+## 🚀 Getting Started
 
-To run this portfolio locally:
+### View the Portfolio
+1. Visit the live site: [rishukumark19.github.io](https://rishukumark19.github.io/)
+2. Browse through the different sections
+3. Check out my projects and experience
+4. Connect with me via the provided links
 
-1.  **Clone the repository:**
-    ```bash
-    git clone [https://github.com/rishukumark19/rishukumark19.github.io.git](https://github.com/rishukumark19/rishukumark19.github.io.git)
-    cd rishukumark19.github.io
-    ```
-2.  **Open the file:**
-    Just open **`index.html`** directly in your web browser. Since it uses only CDNs for Tailwind and HTMX, **no build step is required**.
+### Run Locally
+```bash
+# Clone the repository
+git clone https://github.com/rishukumark19/rishukumark19.github.io.git
 
-### Customizing for Yourself:
+# Navigate to the project
+cd rishukumark19.github.io
 
-* **Your Photo:** Replace `rishu_kumar_img.jpg` with your own photo.
-* **Your Resume:** Replace `Rishu_Kumar_Resume.pdf` with your updated PDF.
-* **Content:** Edit the text, projects array, and skills list directly within `index.html`.
+# Open in a local server (Python)
+python -m http.server 8000
 
----
-
-## 📂 File Structure
-
-| File | Description |
-| :--- | :--- |
-| **`index.html`** | The **complete portfolio**—all HTML, CSS styles, and JavaScript logic in one file. |
-| `rishu_kumar_img.jpg` | Your profile image. |
-| `Rishu_Kumar_Resume.pdf` | Your downloadable resume. |
-| **`README.md`** | You are here! |
+# Or use any other local server of your choice
+# Then visit: http://localhost:8000
+```
 
 ---
 
+## 📝 Latest Updates
+
+- **Feb 2026:** Updated portfolio with latest projects and experience
+- **Feb 2026:** Enhanced UI/UX with modern design patterns
+- **Dec 2025:** Added DataNeurus internship experience
+- **Aug 2025:** Started freelance work at CrossTech
+
 ---
 
-### 📬 Let's Connect!
+## 📄 License
 
-<a href="mailto:rishukumar.work@gmail.com"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
-<a href="https://www.linkedin.com/in/YOUR_LINKEDIN_PROFILE" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-<a href="https://x.com/rishukumark19" target="_blank"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" /></a>
+This portfolio website is open source and available under the MIT License.
 
-**Project Status: Open for Internships/Collaborations.**
+---
 
-<p align="center">Made with ☕ and curiosity by Rishu Kumar.</p>
+## 🙏 Thank You
+
+Thank you for visiting my portfolio! I'm always looking to connect with fellow developers, designers, and tech enthusiasts. Feel free to reach out through any of the contact links above.
+
+<p align="center">
+  Made with ☕ and dedication by Rishu Kumar
+  <br />
+  "Building beautiful, scalable, and user-friendly web applications"
+</p>
