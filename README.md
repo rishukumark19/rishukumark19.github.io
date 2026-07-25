@@ -23,7 +23,7 @@ This is my personal portfolio website built with modern web technologies. It sho
 
 ### What's Featured
 ✅ **Professional Introduction** - Learn about my development journey
-✅ **Featured Projects** - React Quiz App, Tech Company Website, Personal Portfolio
+✅ **Featured Projects** - CrossTech Website, QDrop Music App, Tech Company Website, Personal Portfolio
 ✅ **Technical Skills** - Frontend, tools, best practices, and methodologies
 ✅ **Experience Timeline** - DataNeurus & CrossTech Internships
 ✅ **Education & Achievements** - NITK B.Tech, Leadership roles at NITK
@@ -97,11 +97,20 @@ rishukumark19.github.io/
 
 ### Project Highlights
 
-**React Quiz Web Application**
-- Component-based architecture
-- Accessibility-focused design
-- Performance-optimized with React hooks
-- Scalable UI implementation
+**DataNeurus Platform** *(Internship Project)*
+- Re-engineered & upscaled from scratch (https://test.dataneurus.ai/)
+- Legacy comparison available (https://dataneurus.com/)
+- Enterprise AI analytics & responsive web app
+
+**CrossTech Digital Agency**
+- Official corporate website for CrossTech focused on business upscaling
+- Interactive UI components & responsive layout
+- Performance-driven frontend design
+
+**QDrop - Shared Music Queue**
+- Side project linking Spotify and music streaming services
+- Real-time collaborative music queuing via QR code scanning
+- Instant song submission & state synchronization
 
 **Tech Company Website**
 - Fully responsive design
@@ -113,6 +122,11 @@ rishukumark19.github.io/
 - Modern professional design
 - Comprehensive project showcase
 - Full-stack development overview
+
+**Sanjeev Singh Official Profile** *(Upcoming)*
+- Upcoming official profile website for Sanjeev Singh (https://sanjeev-singh.in)
+- Modern UI architecture with clean typography & responsive layout
+- High-performance frontend design
 
 ---
 

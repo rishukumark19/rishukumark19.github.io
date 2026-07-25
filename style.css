@@ -292,7 +292,8 @@ section h2 {
 
 .project-links {
   display: flex;
-  gap: 2rem;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.2rem;
   font-size: 0.9rem;
   margin-top: 1rem;
   align-items: center;
