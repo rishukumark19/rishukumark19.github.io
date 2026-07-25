@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- THEME TOGGLE LOGIC ---
-  const themeToggle = document.querySelector(".theme-toggle-fixed");
+  const themeToggle = document.querySelector(".theme-toggle-nav");
   const html = document.documentElement;
   // Check local storage
   const storedTheme = localStorage.getItem("theme");

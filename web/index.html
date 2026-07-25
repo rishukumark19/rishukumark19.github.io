@@ -59,13 +59,18 @@
     <!-- BOUNCE NAV -->
     <div class="nav-wrapper">
       <nav class="bounce-navbar">
-        <img
-          src="../resource/rishu_kumar_img.jpg"
-          alt="Logo"
-          class="center-logo"
-        />
-        <span class="brand">RISHU KUMAR</span>
-        <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <img
+            src="../resource/rishu_kumar_img.jpg"
+            alt="Logo"
+            class="center-logo"
+          />
+          <span class="brand">RISHU KUMAR</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <button class="theme-toggle-nav" aria-label="Toggle Theme">🌙</button>
+          <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+        </div>
       </nav>
 
       <div class="nav-overlay">
@@ -84,8 +89,6 @@
       </div>
     </div>
 
-    <!-- Theme Toggle -->
-    <button class="theme-toggle-fixed" aria-label="Toggle Theme">🌙</button>
 
     <!-- Hero Section -->
     <!-- Hero Section -->
@@ -613,12 +616,7 @@
           <a href="mailto:rishukumar.work@gmail.com" class="email-link"
             >rishukumar.work@gmail.com</a
           >
-          <p
-            class="phone-number"
-            style="color: var(--text-muted); margin-top: 0.5rem"
-          >
-            +91-7250215969
-          </p>
+
           <p class="location" style="color: var(--text-muted)">
             Bengaluru, Karnataka, India
           </p>

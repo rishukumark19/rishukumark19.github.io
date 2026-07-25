@@ -93,13 +93,18 @@
     <!-- BOUNCE NAV -->
     <div class="nav-wrapper">
       <nav class="bounce-navbar">
-        <img
-          src="./resource/rishu_kumar_img.jpg"
-          alt="Logo"
-          class="center-logo"
-        />
-        <span class="brand">RISHU KUMAR</span>
-        <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <img
+            src="./resource/rishu_kumar_img.jpg"
+            alt="Logo"
+            class="center-logo"
+          />
+          <span class="brand">RISHU KUMAR</span>
+        </div>
+        <div style="display: flex; gap: 12px; align-items: center;">
+          <button class="theme-toggle-nav" aria-label="Toggle Theme">🌙</button>
+          <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+        </div>
       </nav>
 
       <div class="nav-overlay">
@@ -114,14 +119,13 @@
       </div>
     </div>
 
-    <!-- Theme Toggle -->
-    <button class="theme-toggle-fixed" aria-label="Toggle Theme">🌙</button>
 
     <!-- HERO / GATEWAY -->
     <section class="hero">
       <div
         class="hero-container"
         style="
+          display: flex;
           flex-direction: column;
           text-align: center;
           align-items: center;

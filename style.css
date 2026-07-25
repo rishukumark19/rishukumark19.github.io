@@ -35,6 +35,22 @@ body {
     auto;
 }
 
+/* Top blur effect so content scrolling above the nav is hidden smoothly */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  z-index: 999; /* Below nav wrapper which is 1000 */
+  pointer-events: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
+
 a,
 button,
 .pointer,
@@ -403,16 +419,129 @@ section h2 {
   transform: scale(1.3);
 }
 
+/* Theme Toggle Nav (Adaptive) */
+.theme-toggle-nav {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001; /* Above nav */
+  background: var(--bg-darker);
+  border: 1px solid var(--border-color);
+  color: var(--text-light);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  line-height: 1;
+  padding: 0;
+  transition: all 0.3s;
+}
+
+.theme-toggle-nav:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 @media (max-width: 768px) {
   .side-nav {
     display: none;
   }
   .hero-container {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem;
+    padding: 0 1.2rem;
+  }
+  .hero {
+    align-items: flex-start;
+    padding-top: 120px;
+    padding-bottom: 40px;
   }
   .hero-title {
-    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+    letter-spacing: -1px;
+  }
+  .hero-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  .container {
+    padding: 0 1.2rem;
+  }
+  section {
+    padding: 3.5rem 0;
+  }
+  section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+  .gateway-card {
+    padding: 2rem 1.5rem;
+    border-radius: 1.2rem;
+  }
+  .gateway-icon {
+    width: 50px;
+    height: 50px;
+  }
+  .bounce-navbar {
+    padding: 10px 16px;
+  }
+  .nav-wrapper {
+    width: 320px;
+    max-width: 95%;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(26, 26, 26, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  html.light-mode .nav-wrapper {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  .theme-toggle-nav {
+    position: static;
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 480px) {
+  .projects-grid, .gateway-grid, .social-grid, .grid-layout, .service-list {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .project-item, .experience-item, .education-item, .grid-card, .service-item {
+    padding: 1.5rem;
+    border-radius: 1rem;
+  }
+  .cta-buttons {
+    justify-content: center;
+    gap: 0.6rem;
+  }
+  .hero-left, .hero-container {
+    text-align: center;
+  }
+  .hero-left .status-info {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+  .project-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+  .project-links a, .preview-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.8rem;
   }
 }
 
@@ -432,8 +561,8 @@ section h2 {
 
 /* NAV WRAPPER */
 .nav-wrapper {
-  width: 300px; /* Default small width */
-  max-width: 90%;
+  width: 320px; /* Default small width adjusted for theme toggle */
+  max-width: 95%;
   max-height: 60px; /* closed height */
   margin: 20px auto;
   position: fixed;
@@ -503,6 +632,11 @@ html.light-mode .nav-wrapper {
   font-size: 20px;
   cursor: pointer;
   color: var(--text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
 }
 
 /* PANEL CONTENT (Hidden initially) */
@@ -555,30 +689,6 @@ html.light-mode .nav-wrapper {
   color: var(--accent);
 }
 
-/* Fixed Theme Toggle (Top Right) */
-.theme-toggle-fixed {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1001; /* Above nav */
-  background: var(--bg-darker);
-  border: 1px solid var(--border-color);
-  color: var(--text-light);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  transition: all 0.3s;
-}
-
-.theme-toggle-fixed:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
 
 /* Special styles for Gateway Cards (Custom for rishuhome) */
 .gateway-grid {
